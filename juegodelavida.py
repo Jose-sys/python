@@ -32,10 +32,11 @@ class life(object):
                 for i in range(self.n):
                         for j in range(self.n):
                                 vecinos = 0
-                                posibilidades = ((i-1,j-1),(i-1,j),(i-1,j+1),(i,j-1),(i,j+1),(i+1,j-1),(i+1,j),(i+1,j+1))
-                                for pos in posibilidades:
-                                        if pos in self.dic:
-                                                vecinos += 1
+                                posibilidades = (i-1,j-1),(i-1,j),(i-1,j+1),(i,j-1),(i,j+1),(i+1,j-1),(i+1,j),(i+1,j+1)
+                                posibilidades = set(posibilidades)
+                                keydic = set(self.dic.keys())
+                                vecinos += len(posibilidades) - len(posibilidades-keydic)
+                            
                                 if (i,j) in self.dic and (vecinos == 2 or vecinos == 3):
                                 	newdic[(i,j)] = True
                                 if (i,j) not in self.dic and vecinos == 3:
