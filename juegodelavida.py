@@ -11,7 +11,6 @@ class life(object):
                 self.n = n
 
         def imprimir(self):
-                
                 for i in range(self.n):
                         linea = ""
                         for j in range(self.n):
@@ -30,10 +29,10 @@ class life(object):
 
         def actualizar(self):
                 newdic = {}
-                posibilidades = ((i-1,j-1),(i-1,j),(i-1,j+1),(i,j-1),(i,j+1),(i+1,j-1),(i+1,j),(i+1,j+1))
                 for i in range(self.n):
                         for j in range(self.n):
                                 vecinos = 0
+                                posibilidades = ((i-1,j-1),(i-1,j),(i-1,j+1),(i,j-1),(i,j+1),(i+1,j-1),(i+1,j),(i+1,j+1))
                                 for pos in posibilidades:
                                         if pos in self.dic:
                                                 vecinos += 1
