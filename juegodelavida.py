@@ -30,25 +30,13 @@ class life(object):
 
         def actualizar(self):
                 newdic = {}
+                posibilidades = ((i-1,j-1),(i-1,j),(i-1,j+1),(i,j-1),(i,j+1),(i+1,j-1),(i+1,j),(i+1,j+1))
                 for i in range(self.n):
                         for j in range(self.n):
                                 vecinos = 0
-                                if (i-1,j-1) in self.dic:
-                                  vecinos += 1
-                                if (i-1,j) in self.dic:
-                                	vecinos += 1
-                                if (i-1,j+1) in self.dic:
-                                	vecinos += 1
-                                if (i,j-1) in self.dic:
-                                	vecinos += 1
-                                if (i,j+1) in self.dic:
-                                	vecinos += 1
-                                if (i+1,j-1) in self.dic:
-                                	vecinos += 1
-                                if (i+1,j) in self.dic:
-                                	vecinos += 1
-                                if (i+1,j+1) in self.dic:
-                                	vecinos += 1
+                                for pos in posibilidades:
+                                        if pos in self.dic:
+                                                vecinos += 1
                                 if (i,j) in self.dic and (vecinos == 2 or vecinos == 3):
                                 	newdic[(i,j)] = True
                                 if (i,j) not in self.dic and vecinos == 3:
