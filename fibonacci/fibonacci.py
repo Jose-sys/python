@@ -11,4 +11,4 @@ def fib(n):
         return res
 
 
-fib(5000000000)
+fib(1000)
