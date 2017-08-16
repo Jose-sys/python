@@ -1,10 +1,14 @@
 "calcular numero de fibonacci de forma optima - memoization"
 
-def fib(i):
-    lista = [1,1]
-    while len(lista) <= i+1:
-        lista.append(lista[-1] + lista[-2])
-    return lista[-1]
+mem = [1,1]
+
+def fib(n):
+    if n < len(mem):
+        return mem[n]
+    else:
+        res = fib(n-1) + fib(n-2)
+        mem.append(res)
+        return res
 
 
 fib(5000000000)
